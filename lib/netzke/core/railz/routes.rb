@@ -13,9 +13,8 @@ module ActionDispatch::Routing
     #     class AdminController < ApplicationController
     #       include Netzke::Railz::ControllerExtensions
     #     end
-    def netzke(prefix = "/netzke", options = {})
-      controller = options[:controller] || :netzke
-      match "#{prefix}/:action(.:format)", to: controller.to_s, as: 'netzke'
+    def netzke(prefix = "/netzke")
+      match "#{prefix}/:action(.:format)", to: "netzke", as: 'netzke', via: :all
     end
   end
 end
